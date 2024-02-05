@@ -1,0 +1,36 @@
+name: "Import Camunda 8 Optimize Artifacts"
+description: 'GitHub Action for automated import of Optimize artifacts'
+author: "Kristoffer Högberg"
+
+inputs:
+  optimize_api_url:
+    description: 'The URL for the Camunda 8 Optimize api'
+    required: true
+  collection_id:
+    description: 'The identifier of the collection that includes the artifacts intended for export'
+    required: true
+  connection_type:
+    required: true
+    description: 'Select "cloud" for cloud-based services or "self-managed" for local, self-hosted connections'
+  source:
+    required: true
+    description: 'Optimize artifacts source'
+  client_id:
+    description: 'The Camunda Optimize api client id'
+    required: true
+  client_secret:
+    description: 'The Camunda Optimize api client secret'
+    required: true
+  audience:
+    description: 'The Camunda Optimize audience'
+  auth_server_url:
+    required: true
+    description: 'The Camunda 8 Optimize authentication server URL'
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
+
+branding:
+  icon: 'activity'
+  color: 'green'
